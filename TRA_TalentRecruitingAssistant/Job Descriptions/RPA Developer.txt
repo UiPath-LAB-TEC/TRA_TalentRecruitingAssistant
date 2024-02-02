@@ -1,0 +1,4 @@
+﻿Very Important: 2+ years experince in UiPath or BluePrism development
+Important: .NET experince C# or VB.NET 3-5 years
+Nice to have: Support customers experince, good communication and team player
+Low priority: Other language experince like Java / Android SDK

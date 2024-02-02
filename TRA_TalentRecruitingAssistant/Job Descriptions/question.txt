@@ -1,0 +1,4 @@
+﻿{
+"subject": "{{Name}}",
+"relationship": "has overall result"
+}

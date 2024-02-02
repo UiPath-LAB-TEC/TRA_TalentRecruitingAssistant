@@ -1,0 +1,6 @@
+﻿,{
+      "subject": "{{Name}}",
+      "relationship": "has skill {{Number}}",
+      "object": {{Skill name}},
+      "certainty": 100
+    }

@@ -1,0 +1,82 @@
+[
+   {
+      "subject": "Nitish Sharma",
+      "relationship": "is assessed for",
+      "object": "RPA Developer",
+      "certainty": 100
+    },
+    {
+      "subject": "RPA Developer",
+      "relationship": "requires qualifications",
+      "object": "B.Tech",
+      "certainty": 100
+    },
+    {
+      "subject": "RPA Developer",
+      "relationship": "requires qualifications",
+      "object": "UiPath Developer",
+      "certainty": 100
+    },
+    {
+      "subject": "RPA Developer",
+      "relationship": "requires seniority",
+      "object": "Engineer",
+      "certainty": 100
+    },
+    {
+      "subject": "RPA Developer",
+      "relationship": "requires skill one",
+      "object": "Uipath",
+      "certainty": 100
+    },
+    {
+      "subject": "RPA Developer",
+      "relationship": "requires skill two",
+      "object": "VB.Net",
+      "certainty": 100
+    },
+    {
+      "subject": "RPA Developer",
+      "relationship": "requires skill three",
+      "object": "C#",
+      "certainty": 100
+    },
+    {
+      "subject": "RPA Developer",
+      "relationship": "requires skill four",
+      "object": "Blueprism",
+      "certainty": 100
+    },
+    {
+      "subject": "RPA Developer",
+      "relationship": "requires skill five",
+      "object": "Java",
+      "certainty": 100
+    }
+	,{
+      "subject": "Nitish Sharma",
+      "relationship": "has skill one",
+      "object": "Python",
+      "certainty": 100
+    },{
+      "subject": "Nitish Sharma",
+      "relationship": "has skill two",
+      "object": " Workato",
+      "certainty": 100
+    },{
+      "subject": "Nitish Sharma",
+      "relationship": "has skill three",
+      "object": " Blue Prism",
+      "certainty": 100
+    },{
+      "subject": "Nitish Sharma",
+      "relationship": "has skill four",
+      "object": " UiPath",
+      "certainty": 100
+    },{
+      "subject": "Nitish Sharma",
+      "relationship": "has skill five",
+      "object": " ASP.NET",
+      "certainty": 100
+    }
+  ]

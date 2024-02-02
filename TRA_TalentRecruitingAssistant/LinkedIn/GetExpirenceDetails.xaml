@@ -1,0 +1,713 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="GetExpirenceDetails" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_ProfileUrl" Type="InArgument(x:String)" />
+    <x:Property Name="io_DtCandidatesDetails" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="in_SrNo" Type="InArgument(x:String)" />
+    <x:Property Name="in_Name" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:GetExpirenceDetails.in_Name>
+    <InArgument x:TypeArguments="x:String" />
+  </this:GetExpirenceDetails.in_Name>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1824.8,5703.2</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>GetExpirenceDetails_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="GetExpirenceDetails" sap:VirtualizedContainerService.HintSize="1835.2,5638.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="profileDetails" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_SrNo,in_Name,&quot;&quot;,&quot;&quot;,in_ProfileUrl,&quot;&quot;}]" DataTable="[io_DtCandidatesDetails]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="1772.8,188" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+    <Assign sap:VirtualizedContainerService.HintSize="1772.8,81.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[profileDetails]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">
+          <Literal x:TypeArguments="x:String" Value="" />
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Edge: (2) Experience | Sharath H Keshavamurthy | LinkedIn" sap:VirtualizedContainerService.HintSize="1772.8,5055.2" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="b75c49cc-a061-42de-9537-bebb7a1ca74a" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1739.2,4838.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="children" />
+              <Variable x:TypeArguments="x:Int32" Name="index" />
+              <Variable x:TypeArguments="x:String" Name="currentDesignation" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="1676.8,24.8" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
+            <ui:FindChildren Children="[children]" DisplayName="Find Children" Filter="&lt;webctrl tag='DIV' parentclass='*artdeco-list__item pvs-list__item--line-separated pvs-list__item--one-column' /&gt;" sap:VirtualizedContainerService.HintSize="1676.8,86.4" sap2010:WorkflowViewState.IdRef="FindChildren_1" Scope="FIND_DESCENDANTS">
+              <ui:FindChildren.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="12ffd4f2-eb36-4fbb-8ae9-44524949cb1d" Selector="&lt;html app='msedge.exe' title='*LinkedIn' /&gt;&lt;webctrl class='scaffold-layout__main' parentid='profile-content' /&gt;" WaitForReady="COMPLETE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
+              </ui:FindChildren.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:FindChildren>
+            <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="[index]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1676.8,4532" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[children]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="ui:UiElement">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ui:UiElement" Name="currentItem" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1641.6,4405.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="1579.2,4290.4" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+                      <ui:IfElseIf.ConditionBlocks>
+                        <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                          <ui:IfElseIfBlock BlockType="If" Condition="[(index+1) mod 2 =0]">
+                            <ui:IfElseIfBlock.Then>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1528.8,4094.4" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="x:String" Name="companyName" />
+                                  <Variable x:TypeArguments="x:String" Name="timeSpend" />
+                                  <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="children_CompanyDetails" />
+                                  <Variable x:TypeArguments="x:Int32" Name="index_Company" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NCheckState DisplayName="Check App State" sap:VirtualizedContainerService.HintSize="1466.4,3384" sap2010:WorkflowViewState.IdRef="NCheckState_2" Version="V3">
+                                  <uix:NCheckState.IfExists>
+                                    <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="812,3165.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <uix:NGetText DisplayName="Get Text : Company Name" sap:VirtualizedContainerService.HintSize="749.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_1" TextString="[companyName]" Version="V3">
+                                        <uix:NGetText.Target>
+                                          <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="[currentItem.Selector.Text+Environment.NewLine+&quot;&lt;webctrl tag='SPAN' parentclass='mr1 hoverable-link-text t-bold' idx='1' /&gt;&quot;]" Guid="fe5463b8-09e6-4858-b75a-935782dc344c" SearchSteps="Selector" />
+                                        </uix:NGetText.Target>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </uix:NGetText>
+                                      <uix:NGetText DisplayName="Get Text : Years of Expirence" sap:VirtualizedContainerService.HintSize="749.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_2" TextString="[timeSpend]" Version="V3">
+                                        <uix:NGetText.Target>
+                                          <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="[currentItem.Selector.Text+Environment.NewLine+&quot;&lt;webctrl tag='SPAN' parentclass='t-14 t-normal' idx='1' /&gt;&quot;]" Guid="7c334407-82f0-4b46-83e2-03aa394ff143" SearchSteps="Selector" />
+                                        </uix:NGetText.Target>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </uix:NGetText>
+                                      <Assign sap:VirtualizedContainerService.HintSize="749.6,82.4" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:String">[profileDetails]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:String">[profileDetails+"Company Name : "+companyName+vblf+timeSpend]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <ui:FindChildren Children="[children_CompanyDetails]" DisplayName="Find Children" Filter="&lt;webctrl tag='DIV' parentclass='pvs-list__paged-list-item  pvs-list__item--one-column'/&gt;" sap:VirtualizedContainerService.HintSize="749.6,52.8" sap2010:WorkflowViewState.IdRef="FindChildren_2" Scope="FIND_DESCENDANTS">
+                                        <ui:FindChildren.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[currentItem]" Id="b8f2e04e-c652-42d2-a736-daebfc954578">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:FindChildren.Target>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:FindChildren>
+                                      <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="[index_Company]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="749.6,2317.6" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[children_CompanyDetails]">
+                                        <ui:ForEach.Body>
+                                          <ActivityAction x:TypeArguments="ui:UiElement">
+                                            <ActivityAction.Argument>
+                                              <DelegateInArgument x:TypeArguments="ui:UiElement" Name="currentItem_CompanyDetails" />
+                                            </ActivityAction.Argument>
+                                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="714.4,2191.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                              <Sequence.Variables>
+                                                <Variable x:TypeArguments="x:String" Name="position" />
+                                              </Sequence.Variables>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="652,2076" sap2010:WorkflowViewState.IdRef="IfElseIf_2">
+                                                <ui:IfElseIf.ConditionBlocks>
+                                                  <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                                    <ui:IfElseIfBlock BlockType="If" Condition="[(index_Company+1) mod 2= 0]">
+                                                      <ui:IfElseIfBlock.Then>
+                                                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="601.6,1880" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                                          <Sequence.Variables>
+                                                            <Variable x:TypeArguments="x:String" Name="positionAtYears" />
+                                                          </Sequence.Variables>
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <uix:NGetText DisplayName="Get Text : Position" sap:VirtualizedContainerService.HintSize="539.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_3" TextString="[position]" Version="V3">
+                                                            <uix:NGetText.Target>
+                                                              <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="[currentItem_CompanyDetails.Selector.Text+Environment.NewLine+&quot;&lt;webctrl tag='SPAN' parentclass='mr1 hoverable-link-text t-bold' idx='1' /&gt;&quot;]" Guid="5733825e-ef7c-4d76-a14e-dbc5bb26e181" SearchSteps="Selector" />
+                                                            </uix:NGetText.Target>
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                          </uix:NGetText>
+                                                          <Assign sap:VirtualizedContainerService.HintSize="539.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[profileDetails]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">[profileDetails+vblf+vbLf+Chr(9)+position]</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                          <If Condition="[(index_Company+1) = 2]" sap:VirtualizedContainerService.HintSize="539.2,354.4" sap2010:WorkflowViewState.IdRef="If_2">
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                            <If.Then>
+                                                              <Sequence sap:VirtualizedContainerService.HintSize="476.8,171.2" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+                                                                  <Assign.To>
+                                                                    <OutArgument x:TypeArguments="x:String">[currentDesignation]</OutArgument>
+                                                                  </Assign.To>
+                                                                  <Assign.Value>
+                                                                    <InArgument x:TypeArguments="x:String">[position]</InArgument>
+                                                                  </Assign.Value>
+                                                                </Assign>
+                                                              </Sequence>
+                                                            </If.Then>
+                                                            <If.Else>
+                                                              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_18" />
+                                                            </If.Else>
+                                                          </If>
+                                                          <uix:NGetText DisplayName="Get Text : Years" sap:VirtualizedContainerService.HintSize="539.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_4" TextString="[positionAtYears]" Version="V3">
+                                                            <uix:NGetText.Target>
+                                                              <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="[currentItem_CompanyDetails.Selector.Text+Environment.NewLine+&quot;&lt;webctrl tag='SPAN' parentclass='t-14 t-normal t-black--light' idx='1' /&gt;&quot;]" Guid="5733825e-ef7c-4d76-a14e-dbc5bb26e181" SearchSteps="Selector" />
+                                                            </uix:NGetText.Target>
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                          </uix:NGetText>
+                                                          <Assign sap:VirtualizedContainerService.HintSize="539.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_7">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[profileDetails]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">[profileDetails+vblf+Chr(9)+positionAtYears]</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                          <uix:NCheckState DisplayName="Check App State" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="539.2,613.6" sap2010:WorkflowViewState.IdRef="NCheckState_1" Version="V3">
+                                                            <uix:NCheckState.IfExists>
+                                                              <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="496,395.2" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                                                <Sequence.Variables>
+                                                                  <Variable x:TypeArguments="x:String" Name="description" />
+                                                                </Sequence.Variables>
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <uix:NGetText DisplayName="Get Text" sap:VirtualizedContainerService.HintSize="433.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_5" TextString="[description]" Version="V3">
+                                                                  <uix:NGetText.Target>
+                                                                    <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="[currentItem_CompanyDetails.Selector.Text+Environment.NewLine+&quot;&lt;webctrl tag='SPAN' parentclass='display-flex align-items-center* t-14 t-normal t-black' idx='1' /&gt;&quot;]" Guid="e8d6abbd-04ab-4d20-82a2-b41276630620" SearchSteps="Selector" />
+                                                                  </uix:NGetText.Target>
+                                                                  <sap:WorkflowViewStateService.ViewState>
+                                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                    </scg:Dictionary>
+                                                                  </sap:WorkflowViewStateService.ViewState>
+                                                                </uix:NGetText>
+                                                                <Assign sap:VirtualizedContainerService.HintSize="433.6,82.4" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                                                  <Assign.To>
+                                                                    <OutArgument x:TypeArguments="x:String">[profileDetails]</OutArgument>
+                                                                  </Assign.To>
+                                                                  <Assign.Value>
+                                                                    <InArgument x:TypeArguments="x:String">[profileDetails+Environment.NewLine+chr(9)+Chr(9)+description]</InArgument>
+                                                                  </Assign.Value>
+                                                                </Assign>
+                                                              </Sequence>
+                                                            </uix:NCheckState.IfExists>
+                                                            <uix:NCheckState.IfNotExists>
+                                                              <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                              </Sequence>
+                                                            </uix:NCheckState.IfNotExists>
+                                                            <uix:NCheckState.Target>
+                                                              <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="[currentItem_CompanyDetails.Selector.Text+Environment.NewLine+&quot;&lt;webctrl tag='SPAN' parentclass='display-flex align-items-center* t-14 t-normal t-black' idx='1' /&gt;&quot;]" Guid="1fcc8461-f718-4f69-80df-abe439b3fab4" SearchSteps="Selector" />
+                                                            </uix:NCheckState.Target>
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                          </uix:NCheckState>
+                                                          <Assign sap:VirtualizedContainerService.HintSize="539.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_15">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[profileDetails]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">[profileDetails+vblf+vblf]</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                        </Sequence>
+                                                      </ui:IfElseIfBlock.Then>
+                                                    </ui:IfElseIfBlock>
+                                                  </sc:BindingList>
+                                                </ui:IfElseIf.ConditionBlocks>
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </ui:IfElseIf>
+                                            </Sequence>
+                                          </ActivityAction>
+                                        </ui:ForEach.Body>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:ForEach>
+                                      <Assign sap:VirtualizedContainerService.HintSize="749.6,82.4" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:String">[profileDetails]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:String">[profileDetails+vblf+vbLf+vblf]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                    </Sequence>
+                                  </uix:NCheckState.IfExists>
+                                  <uix:NCheckState.IfNotExists>
+                                    <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="601.6,2047.2" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                      <Sequence.Variables>
+                                        <Variable x:TypeArguments="x:String" Name="position" />
+                                        <Variable x:TypeArguments="x:String" Name="positionAtYears" />
+                                      </Sequence.Variables>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="539.2,348" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+                                        <ui:CommentOut.Body>
+                                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,269.6" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <uix:NGetText DisplayName="Get Text : Position" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_17" ScopeIdentifier="b75c49cc-a061-42de-9537-bebb7a1ca74a" TextString="[currentDesignation]" Version="V3">
+                                              <uix:NGetText.Target>
+                                                <uix:TargetAnchorable BrowserURL="https://www.linkedin.com/in/dragos-minuta-71607647/details/experience/" DesignTimeRectangle="639, 397, 144, 30" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'Linux developer'" FullSelectorArgument="&lt;webctrl aaname='*' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SPAN' type='' class='' /&gt;" Guid="3415af00-70a0-4dfd-b281-7e38b911e455" InformativeScreenshot="2755e03703e4158b247dc09759ad0086.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Experience | Dragos Minuta | LinkedIn' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                                                  <uix:TargetAnchorable.Anchors>
+                                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                                      <uix:Target DesignTimeRectangle="639, 427, 61, 23" ElementType="Text" FriendlyName="'Tellence'" FullSelectorArgument="&lt;webctrl aaname='Tellence' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Tellence' tag='SPAN' type='' class='' check:innerText='Tellence' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEEAAAAbCAYAAAAj4uLUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGVSURBVFhH7ZTBjYQwDEW3DeqZJqARyqAJuHKnBmqgBq4cs/5oP4q+kk0izWFX4ydFGrBjOw+Gr+AEl2C4BMMlGC7BcAmGSzBcgvF2Ceu6hmEYwnme9/VxHOH1eoV93+/rv8gjgcN2XZddOGCJfy1B0cPU4hIMl2B8hARc4z6/E5pTKwF5v31vpmm6F/fn8oDOpHlaYxzHcF3XT7RRAovFDTBonKf7UhJ0T66uDowauBfX4l7kE9zbtu3+rXtQCzXjuk0S0EgtIo48HqAkISUF6D4VBXgAHlivlVxcZ6iWwMPq8NqoJAFxFQkQRx7yAeqlDod73J8TShDv+/6pSXgWzAKqJbAh/1e6aiUgL7Ufq1WCilMQT/XhapZAeznrpCQB8dSboNRIQO3UkyalOKmWgKZonhospiSh9PRIjQQ+GPRMUYqTpg8jXy8tuizLk1eSQJlaG3n8ooMaCSA1U1wL9xFnf4C98zw/NZokAB6K/ysdoCSB4DBxDe1VKwHoTPqmUVS84nmyEj4Jl2C4BMMlGC4hhPANF4t3KLCPAuIAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                                      <uix:Target DesignTimeRectangle="639, 627, 321, 23" ElementType="Text" FriendlyName="'HARMAN International'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='7' isleaf='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='' isleaf='1' tag='SPAN' aaname='HARMAN International (through Tellence)' check:innerText='HARMAN International (through Tellence)' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                                                    </scg:List>
+                                                  </uix:TargetAnchorable.Anchors>
+                                                </uix:TargetAnchorable>
+                                              </uix:NGetText.Target>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </uix:NGetText>
+                                          </Sequence>
+                                        </ui:CommentOut.Body>
+                                      </ui:CommentOut>
+                                      <uix:NGetText DisplayName="Get Text : Position" sap:VirtualizedContainerService.HintSize="539.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_18" TextString="[currentDesignation]" Version="V3">
+                                        <uix:NGetText.Target>
+                                          <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="[currentItem.Selector.Text+Environment.NewLine+&quot;&lt;webctrl tag='SPAN' parentclass='mr1 t-bold' idx='1' /&gt;&quot;]" Guid="5733825e-ef7c-4d76-a14e-dbc5bb26e181" SearchSteps="Selector" />
+                                        </uix:NGetText.Target>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </uix:NGetText>
+                                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="539.2,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                                        <ui:CommentOut.Body>
+                                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,269.6" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <uix:NGetText DisplayName="Get Text : Company Name" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_13" TextString="[companyName]" Version="V3">
+                                              <uix:NGetText.Target>
+                                                <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="[currentItem.Selector.Text+Environment.NewLine+&quot;&lt;webctrl tag='SPAN' parentclass='mr1 hoverable-link-text t-bold' idx='1' /&gt;&quot;]" Guid="fe5463b8-09e6-4858-b75a-935782dc344c" SearchSteps="Selector" />
+                                              </uix:NGetText.Target>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </uix:NGetText>
+                                          </Sequence>
+                                        </ui:CommentOut.Body>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:CommentOut>
+                                      <uix:NGetText DisplayName="Get Text" sap:VirtualizedContainerService.HintSize="539.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_14" TextString="[companyName]" Version="V3">
+                                        <uix:NGetText.Target>
+                                          <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="[currentItem.Selector.Text+&quot;&lt;webctrl isleaf='1' tag='SPAN' parentclass='t-14 t-normal' idx='1' /&gt;&quot;]" Guid="c73b79db-7b46-4e22-bab6-40c7e69007e6" SearchSteps="Selector" />
+                                        </uix:NGetText.Target>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </uix:NGetText>
+                                      <uix:NGetText DisplayName="Get Text : Years" sap:VirtualizedContainerService.HintSize="539.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_7" TextString="[positionAtYears]" Version="V3">
+                                        <uix:NGetText.Target>
+                                          <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="[currentItem.Selector.Text+Environment.NewLine+&quot;&lt;webctrl isleaf='1' parentclass='t-14 t-normal t-black--light' idx='1' /&gt;&quot;]" Guid="5733825e-ef7c-4d76-a14e-dbc5bb26e181" SearchSteps="Selector" />
+                                        </uix:NGetText.Target>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </uix:NGetText>
+                                      <Assign sap:VirtualizedContainerService.HintSize="539.2,82.4" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:String">[profileDetails]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:String">[profileDetails+"Company Name : "+companyName+vbLf+currentDesignation+vbLf+positionAtYears]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <uix:NCheckState DisplayName="Check App State" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="539.2,613.6" sap2010:WorkflowViewState.IdRef="NCheckState_3" Version="V3">
+                                        <uix:NCheckState.IfExists>
+                                          <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="496,395.2" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                            <Sequence.Variables>
+                                              <Variable x:TypeArguments="x:String" Name="description" />
+                                            </Sequence.Variables>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <uix:NGetText DisplayName="Get Text" sap:VirtualizedContainerService.HintSize="433.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_8" TextString="[description]" Version="V3">
+                                              <uix:NGetText.Target>
+                                                <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="[currentItem.Selector.Text+Environment.NewLine+&quot;&lt;webctrl tag='SPAN' parentclass='display-flex align-items-center* t-14 t-normal t-black' idx='1' /&gt;&quot;]" Guid="e8d6abbd-04ab-4d20-82a2-b41276630620" SearchSteps="Selector" />
+                                              </uix:NGetText.Target>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </uix:NGetText>
+                                            <Assign sap:VirtualizedContainerService.HintSize="433.6,82.4" sap2010:WorkflowViewState.IdRef="Assign_11">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:String">[profileDetails]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String">[profileDetails+Environment.NewLine+chr(9)+description]</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                          </Sequence>
+                                        </uix:NCheckState.IfExists>
+                                        <uix:NCheckState.IfNotExists>
+                                          <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </Sequence>
+                                        </uix:NCheckState.IfNotExists>
+                                        <uix:NCheckState.Target>
+                                          <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="[currentItem.Selector.Text+Environment.NewLine+&quot;&lt;webctrl tag='SPAN' parentclass='display-flex align-items-center* t-14 t-normal t-black' idx='1' /&gt;&quot;]" Guid="1fcc8461-f718-4f69-80df-abe439b3fab4" SearchSteps="Selector" />
+                                        </uix:NCheckState.Target>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </uix:NCheckState>
+                                      <Assign sap:VirtualizedContainerService.HintSize="539.2,82.4" sap2010:WorkflowViewState.IdRef="Assign_12">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:String">[profileDetails]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:String">[profileDetails+vbLf+vbLf]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                    </Sequence>
+                                  </uix:NCheckState.IfNotExists>
+                                  <uix:NCheckState.Target>
+                                    <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="[currentItem.Selector.Text+Environment.NewLine+&quot;&lt;webctrl tag='SPAN' parentclass='mr1 hoverable-link-text t-bold' idx='1' /&gt;&quot;]" Guid="9d28c20c-2d07-48d7-aa7e-5f9c13a093df" SearchSteps="Selector" />
+                                  </uix:NCheckState.Target>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </uix:NCheckState>
+                                <If Condition="[(index+1) = 2]" sap:VirtualizedContainerService.HintSize="1466.4,558.4" sap2010:WorkflowViewState.IdRef="If_1">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <If.Then>
+                                    <Sequence sap:VirtualizedContainerService.HintSize="476.8,292.8" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Object">[io_DtCandidatesDetails.Rows(io_DtCandidatesDetails.RowCount-1)("Current Company")]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Object">[companyName]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Object">[io_DtCandidatesDetails.Rows(io_DtCandidatesDetails.RowCount-1)("Current Designation")]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Object">[currentDesignation]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence sap:VirtualizedContainerService.HintSize="300,82.4" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                              </Sequence>
+                            </ui:IfElseIfBlock.Then>
+                          </ui:IfElseIfBlock>
+                        </sc:BindingList>
+                      </ui:IfElseIf.ConditionBlocks>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:IfElseIf>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:ForEach>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALiSURBVFhH7VfNaxNBFN/UGJMUvdSi0Kog1YvgwYtHwZPnFj0oCFbT5GCUVmwFxYKotQdvKqJ/QRUUNRTEotmVpk1bY1H8uNh8WGtpU6utkkQ3ec5vshO3aTcNslty6IMfmX3zPn4zbzLDkypCXB4ZqHJ7lFp3i1JvMWrcPsXm9ipacm9QcpzstblalCY2GWH4bDHCDE1r/M9sTl9QktgHUKNN0AoBC8VuFwhga8CuYOTyKLTuhMyBsX7OBCAXci5NAAm3tIXo0M13HNvODJhNwpgAEm1lCXvCU/Qrk2VQqWdoihEylYQxAWz5Qbbqn2mVhGAMHeZgYwIqmEC+/qIEKi8DSoCyrEgJACTCwcOqARzIcpKzu4TblWFbmgBgPy5T1bEgx1o2RnDoUQZ8C4iE0K/3vaRNp/qp1t9fsNXH1MGYAIIhyLn7Y3Q1EOfAGDoEPHD9DXUFEnTlSZw6H8Zo94Vh2nw6RIdvv6e7wQl6+naGAqNJusb89l56RdWLk5cm4GQEdnSEafxbWjuCxMfQ2ZuDPLGQ+ZRKFx9E6VFkmp8XveQYotMpOnrnA1V7LSLwW83R5I8M5ZDNQOLJFO3rek3OheUwh4AQNZujxEyaIrH5PCFNL+TW8y+0gZ0PxNdgHoHMnyzd6BunPZ0jVN86QPu7R2lobE6bzctIdK74JjWPQPDjLNW1hsjBthgJ8M84wg4k7g8h8WSaGtoHeWzk0HKZQ6C7N7Hg7+b0yLTr/DB9/Z7RLP75W0Lg8uMYXzV8hX9D+9L+K0bAyH+VwCqBsglsPzvIL4+J2TQHxtDZm2XquPeJ33YIil98O4oIGPmXRQDAswoHsAYwhg5PMl6+nZoev3glxVO9nL/OpjQBAGz1EHrcdnp9cXIBvQ1QNL+IAJoENAvFhlYBTRCaIUlCe2T397HWTG7UJsDOSrCFyo32thc2l0/O94dMAbDmVAYrbM3/om5ZeOSNaITREFeASNJf503cP1oKQCkAAAAASUVORK5CYII=" InformativeScreenshot="55649bcea29518e7d99b7ed42c7af8d8.jpg" Selector="&lt;html app='msedge.exe' title='*LinkedIn' /&gt;" Url="[System.Text.RegularExpressions.Regex.Match(in_ProfileUrl,&quot;.*(?=\?)&quot;).Value+&quot;/details/experience/&quot;]" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+    <Assign sap:VirtualizedContainerService.HintSize="1772.8,81.6" sap2010:WorkflowViewState.IdRef="Assign_13">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Object">[io_DtCandidatesDetails.Rows(io_DtCandidatesDetails.RowCount-1)("Complete Profile Details")]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Object">[profileDetails]</InArgument>
+      </Assign.Value>
+    </Assign>
+  </Sequence>
+</Activity>

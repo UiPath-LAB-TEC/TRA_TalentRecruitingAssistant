@@ -1,0 +1,14 @@
+﻿{
+    "result": [
+        {
+            "subject": "Steve",
+            "relationshipType": "has overall result",
+            "object": "Score",
+            "certainty": 73,
+            "factID": "WA:RF:3c6743b0e9579112eaa0a0f60ffc317875efcdec3a817496f515f75b3ed201ec",
+            "relationship": "has overall result"
+        }
+    ],
+    "queryProfile": [],
+    "sid": "148928b9-7eae-4c5a-be26-5aaff4675838"
+}

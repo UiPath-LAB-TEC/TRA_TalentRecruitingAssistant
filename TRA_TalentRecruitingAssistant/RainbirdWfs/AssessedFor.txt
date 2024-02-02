@@ -1,0 +1,6 @@
+﻿{
+      "subject": "{{Name}}",
+      "relationship": "is assessed for",
+      "object": "{{Role}}",
+      "certainty": 100
+    }

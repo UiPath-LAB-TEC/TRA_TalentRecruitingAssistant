@@ -1,0 +1,241 @@
+{
+  "name": "FDOA_ExpediteTalentSearchGenAI",
+  "description": "Expedite Talent Search Gen AI",
+  "main": "Main-Rainbird.xaml",
+  "dependencies": {
+    "UiPath.ConnectorBuilder.IntegrationService.Activities": "[5.0.0]",
+    "UiPath.DataService.Activities": "[23.4.0]",
+    "UiPath.Excel.Activities": "[2.16.1]",
+    "UiPath.Form.Activities": "[2.0.3]",
+    "UiPath.GSuite.Activities": "[2.3.2-preview]",
+    "UiPath.Mail.Activities": "[1.18.2]",
+    "UiPath.MicrosoftAzureOpenAI.IntegrationService.Activities": "[7.1.0]",
+    "UiPath.OpenAI.IntegrationService.Activities": "[6.1.0]",
+    "UiPath.System.Activities": "[22.10.4]",
+    "UiPath.Testing.Activities": "[22.10.2]",
+    "UiPath.UIAutomation.Activities": "[22.10.4]",
+    "UiPath.WebAPI.Activities": "[1.13.3]",
+    "UiPathTeam.NumberToWords.Activities": "[1.1.0]"
+  },
+  "webServices": [],
+  "entitiesStores": [
+    {
+      "serviceDocument": ".entities/EntitiesStore.json",
+      "tenantName": "Global_Productivity_Center",
+      "namespace": "ChatGPTLinkedin",
+      "uniqueReference": "0gMPnoVVnRkRjeW7j8rH3Jl1Jig8NSWW4PLm04ZI/g8="
+    }
+  ],
+  "schemaVersion": "4.0",
+  "studioVersion": "22.10.4.0",
+  "projectVersion": "1.0.16",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "workflowSerialization": "DataContract",
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": true
+  },
+  "arguments": {
+    "input": [
+      {
+        "name": "in_ListOfCandidates",
+        "type": "System.Data.DataTable, System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+        "required": false,
+        "hasDefault": false
+      },
+      {
+        "name": "in_JobDescription",
+        "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+        "required": false,
+        "hasDefault": true
+      },
+      {
+        "name": "in_JobRole",
+        "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+        "required": false,
+        "hasDefault": true
+      },
+      {
+        "name": "in_InputFileName",
+        "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+        "required": false,
+        "hasDefault": true
+      },
+      {
+        "name": "in_ApiKey",
+        "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+        "required": false,
+        "hasDefault": true
+      }
+    ],
+    "output": []
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main-ChatGpt.xaml",
+      "uniqueId": "06c56f86-593c-4fbc-8372-54736127d558",
+      "input": [
+        {
+          "name": "in_ListOfCandidates",
+          "type": "System.Data.DataTable, System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+          "required": false,
+          "hasDefault": false
+        },
+        {
+          "name": "in_JobDescription",
+          "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+          "required": false,
+          "hasDefault": true
+        },
+        {
+          "name": "in_JobRole",
+          "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+          "required": false,
+          "hasDefault": true
+        },
+        {
+          "name": "in_InputFileName",
+          "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+          "required": false,
+          "hasDefault": true
+        },
+        {
+          "name": "in_ApiKey",
+          "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+          "required": false,
+          "hasDefault": true
+        }
+      ],
+      "output": []
+    },
+    {
+      "filePath": "Main-LinkedIn.xaml",
+      "uniqueId": "9d7bec0b-d2da-4ab5-b3cb-0753e416d6b1",
+      "input": [
+        {
+          "name": "max_Records",
+          "type": "System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+          "required": false,
+          "hasDefault": true
+        },
+        {
+          "name": "in_fileName",
+          "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+          "required": false,
+          "hasDefault": true
+        },
+        {
+          "name": "in_JobRole",
+          "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+          "required": false,
+          "hasDefault": false
+        }
+      ],
+      "output": [
+        {
+          "name": "out_DtCandidateDetails",
+          "type": "System.Data.DataTable, System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+        }
+      ]
+    },
+    {
+      "filePath": "LinkedIn_ConnectionVerification.xaml",
+      "uniqueId": "a49c9959-e924-4783-a1d4-0d820229d4e2",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "Main-SummaryReport.xaml",
+      "uniqueId": "2089524d-131e-4213-a819-211da04d46a9",
+      "input": [
+        {
+          "name": "in_EmailId",
+          "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+          "required": false,
+          "hasDefault": false
+        }
+      ],
+      "output": []
+    },
+    {
+      "filePath": "Main-ScheduleCalendarInvite.xaml",
+      "uniqueId": "a47d3fee-b5da-4271-9dba-51e20e3069b6",
+      "input": [
+        {
+          "name": "in_EmailId",
+          "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+          "required": false,
+          "hasDefault": true
+        },
+        {
+          "name": "in_StartDate",
+          "type": "System.DateTime, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+          "required": false,
+          "hasDefault": true
+        }
+      ],
+      "output": []
+    },
+    {
+      "filePath": "Main-SendCommunication.xaml",
+      "uniqueId": "1d5e897d-e087-4cf2-8cb0-53dba9beaf9e",
+      "input": [
+        {
+          "name": "in_Email",
+          "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+          "required": false,
+          "hasDefault": false
+        },
+        {
+          "name": "in_Subject",
+          "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+          "required": false,
+          "hasDefault": false
+        },
+        {
+          "name": "in_Body",
+          "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+          "required": false,
+          "hasDefault": false
+        }
+      ],
+      "output": []
+    },
+    {
+      "filePath": "Main-Rainbird.xaml",
+      "uniqueId": "4da698b4-3b3d-4830-84a1-3555e45382a9",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Windows"
+}
